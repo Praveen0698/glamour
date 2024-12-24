@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import BgImage from "@/public/bgimage.webp";
 
 const Slider = () => {
   return (
