@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Gistesy";
+  src: url("/fonts/Gistesy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .my-scroll-container::-webkit-scrollbar {
   display: none;
 }

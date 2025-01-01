@@ -6,6 +6,7 @@ import Products from "./components/Products";
 import Services from "./components/Services";
 import Footer from "./components/common/Footer";
 import Gallery from "./components/Gallery";
+import NewServices from "./components/NewServices";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <Expertise />
       <About />
       <Products />
-      <Services />
+      <NewServices />
       <Gallery />
       <Footer />
     </div>
