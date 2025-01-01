@@ -42,13 +42,13 @@ const Slider = () => {
             <div className="flex justify-center items-center gap-5 mt-10">
               <button
                 onClick={handleModalToggle}
-                className="px-7 py-4 text-2xl bg-[#cdb4db] text-white rounded-md"
+                className="px-7 py-4 w-[20rem] text-2xl bg-[#cdb4db] text-white rounded-md"
               >
                 BOOK APPOINTMENT
               </button>
               <a href="#services" className="flex">
-                <button className="px-7 py-4 text-2xl bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md">
-                  VIEW SERVICE MENU
+                <button className="px-7 w-[20rem] py-4 text-2xl bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md">
+                  VIEW SERVICE
                 </button>
               </a>
             </div>

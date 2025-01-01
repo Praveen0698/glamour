@@ -56,10 +56,10 @@ const Navbar = () => {
           Services
         </Link>
         <Link
-          href="#contact"
+          href="#gallery"
           className="hover:text-[#cdb4db] transition-all duration-500"
         >
-          Contact
+          Gallery
         </Link>
       </div>
       <button

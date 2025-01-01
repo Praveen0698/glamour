@@ -29,7 +29,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
           <div className="w-[280px] flex-shrink-0">
@@ -40,7 +39,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
           <div className="w-[280px] flex-shrink-0">
@@ -51,7 +49,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
           <div className="w-[280px] flex-shrink-0">
@@ -62,7 +59,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
           <div className="w-[280px] flex-shrink-0">
@@ -73,7 +69,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
           <div className="w-[280px] flex-shrink-0">
@@ -84,7 +79,6 @@ const Products = () => {
             />
             <div className="flex justify-center items-center flex-col gap-2.5">
               <span className="font-semibold">Facial Cleanser</span>
-              <span className="font-thin">&#8377; 599 /-</span>
             </div>
           </div>
         </div>

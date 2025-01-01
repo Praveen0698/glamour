@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Gallery = () => {
   return (
-    <section className="px-[8rem] py-8 text-center">
+    <section id="gallery" className="px-[8rem] py-8 text-center">
       <h1 className="text-[2.15rem] mb-5">GALLERY</h1>
       <div className="flex gap-5 w-[100%] overflow-x-scroll my-scroll-container">
         <div className="w-[280px] flex-shrink-0">
