@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.png";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 const Navbar = () => {

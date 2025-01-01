@@ -3,7 +3,6 @@ import Navbar from "./components/common/Navbar";
 import Slider from "./components/Slider";
 import About from "./components/About";
 import Products from "./components/Products";
-import Services from "./components/Services";
 import Footer from "./components/common/Footer";
 import Gallery from "./components/Gallery";
 import NewServices from "./components/NewServices";
