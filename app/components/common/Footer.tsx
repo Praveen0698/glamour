@@ -7,21 +7,21 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <section className="bg-[#3f3d3d] flex justify-between items-center px-[8rem] py-8">
-      <div className="w-1/3 text-center">
+    <section className="bg-[#000] flex flex-col lg:flex-row justify-between items-center px-8 lg:px-[8rem] py-8">
+      <div className="w-full lg:w-1/3 text-center mb-6 lg:mb-0">
         <h2 className="text-3xl font-semibold text-[#cdb4db]">Address</h2>
         <p className="text-[1rem] my-5 text-white">
           Gandhi Chowk, pardhia complex, near by Liquor shop, Brajrajnagar,
           Odisha 768216
         </p>
         <p className="text-white">
-          <span className="font-medium ">MON - SUN:</span> 10AM - 10PM
+          <span className="font-medium ">MON - SUN:</span> 10AM - 8PM
         </p>
       </div>
-      <div className="w-1/3 text-center">
+      <div className="w-full lg:w-1/3 text-center mb-6 lg:mb-0">
         <Image src={logo} alt="logo" className="h-[280px] w-[280px] mx-auto" />
       </div>
-      <div className="w-1/3 text-center">
+      <div className="w-full lg:w-1/3 text-center">
         <h2 className="text-3xl font-semibold text-[#cdb4db]">CONTACT</h2>
         <p className="text-[1rem] my-5 text-white">+91 87631 10751</p>
         <div className="flex justify-center items-center gap-2.5 text-white">

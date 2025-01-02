@@ -4,7 +4,7 @@ import permanent from "@/public/Permanent.webp";
 import skin from "@/public/Skin.webp";
 import injectables from "@/public/Injectables.webp";
 import makeup from "@/public/makeup.webp";
-import teeth from "@/public/teeth.webp";
+import salon from "@/public/salon.webp";
 import laser from "@/public/laser.webp";
 
 const services = [
@@ -33,10 +33,10 @@ const services = [
     image: makeup,
   },
   {
-    title: "Teeth Whitening",
+    title: "Salon",
     description:
-      "Gently whiten teeth up to 14 shades with our DaVinci Teeth Whitening system. We use a combination of an LED laser and plant-based gels to safely whiten teeth without sensitivity.",
-    image: teeth,
+      "Indulge in a luxurious experience at our salon, where beauty and relaxation come together. From expert hairstyling and vibrant color treatments to rejuvenating facials and soothing massages, we provide personalized care to enhance your natural beauty. Let us be your destination for self-care and transformation.",
+    image: salon,
   },
   {
     title: "Laser Treatments",
@@ -50,15 +50,17 @@ export default function NewServices() {
   return (
     <section
       id="services"
-      className="bg-[#cdb4db] px-[8rem] py-[2.5rem] text-center"
+      className="bg-[#cdb4db] px-4 sm:px-8 md:px-12 lg:px-[8rem] py-[2.5rem] text-center"
     >
-      <h1 className="mx-auto text-3xl font-semibold mb-10">OUR SERVICES</h1>
+      <h1 className="mx-auto text-2xl sm:text-3xl font-semibold mb-10">
+        OUR SERVICES
+      </h1>
 
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
         {services.map((service, index) => (
           <div
             key={index}
-            className="relative group w-full h-[30rem] overflow-hidden rounded-lg shadow-lg"
+            className="relative group w-full h-[20rem] sm:h-[25rem] lg:h-[30rem] overflow-hidden rounded-lg shadow-lg"
           >
             {/* Image */}
             <Image
@@ -69,14 +71,14 @@ export default function NewServices() {
 
             {/* Text Container */}
             <div className="absolute bottom-0 w-full h-full flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent">
-              <div className="absolute bottom-5 w-full px-4 transition-transform duration-500 transform group-hover:translate-y-[-4rem]">
+              <div className="absolute bottom-5 w-full px-4 transition-transform duration-500 transform group-hover:translate-y-[-3rem]">
                 {/* Title */}
-                <h1 className="text-white text-4xl font-bold mb-2 italic">
+                <h1 className="text-white text-xl sm:text-2xl lg:text-4xl font-bold mb-2 italic">
                   {service.title}
                 </h1>
 
                 {/* Description */}
-                <p className="hidden group-hover:block text-base font-semibold text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <p className="hidden group-hover:block text-sm sm:text-base font-semibold text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   {service.description}
                 </p>
               </div>

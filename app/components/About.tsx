@@ -8,11 +8,18 @@ import about5 from "@/public/about-5.webp";
 const About = () => {
   return (
     <section className="bg-[#cdb4db]" id="about">
-      <div className="flex justify-center items-center gap-10 w-full px-[8rem] py-[2.5rem]">
-        <Image src={about1} alt="about-1" className="w-1/2 h-[280px]" />
-        <div className="flex justify-start items-start gap-2.5 flex-col">
-          <h2 className="text-[2.15rem]">Welcome to Glamour Avenue</h2>
-          <p className="text-[1rem]">
+      {/* First Section */}
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 w-full px-6 sm:px-10 lg:px-[8rem] py-[2.5rem]">
+        <Image
+          src={about1}
+          alt="about-1"
+          className="w-full lg:w-1/2 h-[200px] sm:h-[280px] object-cover"
+        />
+        <div className="flex justify-start items-start gap-2.5 flex-col text-center lg:text-left">
+          <h2 className="text-[1.75rem] sm:text-[2.15rem] font-bold">
+            Welcome to Glamour Avenue
+          </h2>
+          <p className="text-[0.95rem] sm:text-[1rem] leading-relaxed">
             The Aesthetic Centre is to provide our clients with the highest
             level of professional services and products available. We strive to
             create positive changes in self-image, through customized programs
@@ -21,11 +28,15 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-start gap-10 w-full px-[8rem] py-[2.5rem]">
-        <div className="flex justify-between items-start gap-2.5 flex-col h-[480px] w-[70%]">
+
+      {/* Second Section */}
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-10 w-full px-6 sm:px-10 lg:px-[8rem] py-[2.5rem]">
+        <div className="flex flex-col gap-6 w-full lg:w-[70%] lg:order-1 sm:order-last">
           <div>
-            <h2 className="text-[2.15rem]">OUR MISSION</h2>
-            <p className="text-[1rem]">
+            <h2 className="text-[1.75rem] sm:text-[2.15rem] font-bold">
+              OUR MISSION
+            </h2>
+            <p className="text-[0.95rem] sm:text-[1rem] leading-relaxed">
               To create a beautiful, comfortable environment where our clients
               come to receive the most effective treatments; guiding them to
               products that deliver the most effective benefits, offering a
@@ -33,28 +44,28 @@ const About = () => {
               that truly cares about our client’s needs and desires.
             </p>
           </div>
-          <div className="flex gap-2.5 w-full">
+          <div className="flex flex-wrap justify-between gap-4">
             <Image
               src={about4}
               alt="about-4"
-              className="w-1/3 h-[280px] rounded-lg"
+              className="w-full sm:w-[30%] h-[180px] sm:h-[280px] rounded-lg object-cover"
             />
             <Image
               src={about5}
               alt="about-5"
-              className="w-1/3 h-[280px] rounded-lg"
+              className="w-full sm:w-[30%] h-[180px] sm:h-[280px] rounded-lg object-cover"
             />
             <Image
               src={about4}
               alt="about-4"
-              className="w-1/3 h-[280px] rounded-lg"
+              className="w-full sm:w-[30%] h-[180px] sm:h-[280px] rounded-lg object-cover"
             />
           </div>
         </div>
         <Image
           src={about3}
           alt="about-3"
-          className="w-[30%] h-[480px] rounded-lg"
+          className="w-full lg:w-[30%] h-[280px] sm:h-[480px] rounded-lg object-cover"
         />
       </div>
     </section>

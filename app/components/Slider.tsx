@@ -34,12 +34,11 @@ const Slider = () => {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            style={{ lineHeight: "70px" }}
-            className="text-white text-4xl md:text-6xl font-bold text-center px-4 py-2 rounded-lg"
+            className="text-white text-3xl md:text-5xl lg:text-6xl font-bold text-center px-4 py-2 rounded-lg sm:leading-[50px] md:leading-[70px]"
           >
             Let your skin and hair tell a story of care, <br /> confidence,{" "}
             <br /> and timeless beauty.
-            <div className="flex justify-center items-center gap-5 mt-10">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-5 mt-6 md:mt-10">
               <button
                 onClick={handleModalToggle}
                 className="px-7 py-4 w-[20rem] text-2xl bg-[#cdb4db] text-white rounded-md"

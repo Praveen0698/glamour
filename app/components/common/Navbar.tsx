@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null); // Explicitly type the ref
 
   const handleModalToggle = () => {
@@ -16,58 +18,89 @@ const Navbar = () => {
       setIsModalOpen(false);
     }
   };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleLinkClick = () => {
+    // Close the mobile menu when a link is clicked
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="flex justify-between items-center px-8 py-4 bg-transparent absolute top-0 left-0 w-full z-50 text-white">
-      <div className="text-2xl font-bold">
-        {/* <Image src={logo} alt="logo" className="w-full h-20 " /> */}
-        <h1 className="font-gistesy text-[3rem] font-bold text-[#D45E3D]">
-          Glamour Avenue
-        </h1>
+      <h1 className="font-gistesy text-[3rem] md:text-[2rem] font-bold text-[#D45E3D]">
+        Glamour Avenue
+      </h1>
+
+      {/* Mobile Menu Toggle Button */}
+      <div className="md:hidden flex items-center">
+        <button onClick={toggleMobileMenu} className="text-[#cdb4db] text-3xl">
+          {isMobileMenuOpen ? "✖" : "☰"}
+        </button>
       </div>
-      <div className="hidden md:flex space-x-10">
+
+      {/* Navigation Links for Desktop */}
+      <div
+        className={`${
+          isMobileMenuOpen ? "flex" : "hidden"
+        } md:flex flex-col absolute md:static top-0 left-0 w-full bg-black md:bg-transparent md:flex-row md:items-center md:p-0 p-8 md:h-auto h-screen items-center justify-center transition-all duration-500 opacity-90 md:gap-4 md:opacity-100`}
+      >
         <Link
           href="#home"
-          className="hover:text-[#cdb4db] transition-all duration-500 "
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           Home
         </Link>
         <Link
           href="#expertise"
-          className="hover:text-[#cdb4db] transition-all duration-500 "
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           Expertise
         </Link>
         <Link
           href="#about"
-          className="hover:text-[#cdb4db] transition-all duration-500"
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           About
         </Link>
         <Link
           href="#products"
-          className="hover:text-[#cdb4db] transition-all duration-500"
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           Products
         </Link>
         <Link
           href="#services"
-          className="hover:text-[#cdb4db] transition-all duration-500"
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           Services
         </Link>
         <Link
           href="#gallery"
-          className="hover:text-[#cdb4db] transition-all duration-500"
+          className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          onClick={handleLinkClick} // Close menu on link click
         >
           Gallery
         </Link>
       </div>
-      <button
-        onClick={handleModalToggle}
-        className="px-4 py-2 bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md hover:bg-[#cdb4db] hover:text-white transition-all duration-500"
-      >
-        Get in Touch
-      </button>
+
+      {/* "Get in Touch" Button for Desktop */}
+      <div className="hidden md:block">
+        <button
+          onClick={handleModalToggle}
+          className="px-4 py-2 bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md hover:bg-[#cdb4db] hover:text-white transition-all duration-500"
+        >
+          Get in Touch
+        </button>
+      </div>
+
       {/* Modal */}
       {isModalOpen && (
         <div
