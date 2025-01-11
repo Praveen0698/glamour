@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null); // Explicitly type the ref
 
   const handleModalToggle = () => {
@@ -19,14 +19,14 @@ const Navbar = () => {
     }
   };
 
-  // const toggleMobileMenu = () => {
-  //     setIsMobileMenuOpen(!isMobileMenuOpen);
-  //   };
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
-  // const handleLinkClick = () => {
-  //     // Close the mobile menu when a link is clicked
-  //     setIsMobileMenuOpen(false);
-  //   };
+  const handleLinkClick = () => {
+    // Close the mobile menu when a link is clicked
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav className="flex justify-between items-center px-8 py-4 bg-transparent absolute top-0 left-0 w-full z-50 text-white">
@@ -35,16 +35,16 @@ const Navbar = () => {
       </h1>
 
       {/* Mobile Menu Toggle Button */}
-      {/* <div className="md:hidden flex items-center">
+      <div className="md:hidden flex items-center">
         <button onClick={toggleMobileMenu} className="text-[#cdb4db] text-3xl">
           {isMobileMenuOpen ? "✖" : "☰"}
         </button>
-      </div> */}
+      </div>
 
       {/* Navigation Links for Desktop */}
       <div className="flex justify-center items-center gap-10 max-770:hidden">
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("home");
@@ -59,7 +59,7 @@ const Navbar = () => {
           Home
         </button>
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("expertise");
@@ -74,7 +74,7 @@ const Navbar = () => {
           Expertise
         </button>
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("about");
@@ -89,7 +89,7 @@ const Navbar = () => {
           About
         </button>
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("products");
@@ -104,7 +104,7 @@ const Navbar = () => {
           Products
         </button>
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("services");
@@ -119,7 +119,7 @@ const Navbar = () => {
           Services
         </button>
         <button
-          className="hover:text-[#cdb4db] font-bold font-gistesy text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+          className="hover:text-[#cdb4db] font-thin font-roboto text-base max-770:text-xl transition-all duration-500"
           type="button"
           onClick={() => {
             const element = document.getElementById("gallery");
@@ -133,41 +133,6 @@ const Navbar = () => {
         >
           Gallery
         </button>
-        {/* <Link
-                    href="#expertise"
-                    className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
-                    onClick={handleLinkClick} // Close menu on link click
-                >
-                    Expertise
-                </Link>
-                <Link
-                    href="#about"
-                    className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
-                    onClick={handleLinkClick} // Close menu on link click
-                >
-                    About
-                </Link>
-                <Link
-                    href="#products"
-                    className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
-                    onClick={handleLinkClick} // Close menu on link click
-                >
-                    Products
-                </Link>
-                <Link
-                    href="#services"
-                    className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
-                    onClick={handleLinkClick} // Close menu on link click
-                >
-                    Services
-                </Link> */}
-        {/* <Link
-                    href="#gallery"
-                    className="hover:text-[#cdb4db] text-xl sm:text-2xl lg:text-xl transition-all duration-500"
-                    onClick={handleLinkClick} // Close menu on link click
-                >
-                    Gallery
-                </Link> */}
       </div>
 
       {/* "Get in Touch" Button for Desktop */}
@@ -179,6 +144,120 @@ const Navbar = () => {
           Get in Touch
         </button>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="flex flex-col absolute top-0 right-0 w-full h-[100dvh] bg-black opacity-90 z-50 justify-center items-center gap-10 transition-all duration-500">
+          <p className="absolute right-10 top-10" onClick={toggleMobileMenu}>
+            ✖
+          </p>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("home");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+              handleLinkClick();
+            }}
+          >
+            Home
+          </button>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("expertise");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+              handleLinkClick();
+            }}
+          >
+            Expertise
+          </button>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("about");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+              handleLinkClick();
+            }}
+          >
+            About
+          </button>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("products");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+              handleLinkClick();
+            }}
+          >
+            Products
+          </button>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("services");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+              handleLinkClick();
+            }}
+          >
+            Services
+          </button>
+          <button
+            className="hover:text-[#cdb4db] font-bold font-mono text-xl sm:text-2xl lg:text-xl transition-all duration-500"
+            type="button"
+            onClick={() => {
+              const element = document.getElementById("gallery");
+              if (element) {
+                element.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
+            Gallery
+          </button>
+          <div>
+            <button
+              onClick={() => {
+                handleModalToggle();
+                handleLinkClick();
+              }}
+              className="px-4 py-2 text-nowrap bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md hover:bg-[#cdb4db] hover:text-white transition-all duration-500"
+            >
+              Get in Touch
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Modal */}
       {isModalOpen && (
