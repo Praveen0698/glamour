@@ -16,7 +16,7 @@ export default function Expertise() {
         OUR EXPERTISE
       </h1>
       <nav className="bg-[#fdfdfd] p-2 border-b border-gray-200 rounded-t-lg my-10">
-        <ul className="flex flex-wrap w-full list-none font-medium text-sm md:text-base m-0 p-0">
+        <ul className="flex justify-center gap-10 flex-wrap w-full list-none font-medium text-sm md:text-base m-0 p-0">
           {tabs.map((item) => (
             <motion.li
               key={item.label}

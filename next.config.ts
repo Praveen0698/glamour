@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", // Wildcard for any hostname
+        // hostname: "**", // Wildcard for any hostname
+        hostname: 'res.cloudinary.com',
       },
     ],
     unoptimized: true, // Disable all image optimization

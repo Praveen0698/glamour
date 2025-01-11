@@ -30,7 +30,7 @@ const About = () => {
       </div>
 
       {/* Second Section */}
-      <div className="flex flex-col lg:flex-row justify-center items-start gap-10 w-full px-6 sm:px-10 lg:px-[8rem] py-[2.5rem]">
+      <div className="flex flex-col lg:flex-row-reverse justify-center items-end gap-10 w-full px-6 sm:px-10 lg:px-[8rem] py-[2.5rem]">
         <div className="flex flex-col gap-6 w-full lg:w-[70%] lg:order-1 sm:order-last">
           <div>
             <h2 className="text-[1.75rem] sm:text-[2.15rem] font-bold">
