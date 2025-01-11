@@ -15,6 +15,9 @@ export default {
       fontFamily: {
         gistesy: ["Gistesy", "sans-serif"], // Add custom font here
       },
+      screens: {
+        "max-770": { max: "770px" },
+      },
     },
   },
   plugins: [],

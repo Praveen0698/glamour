@@ -44,11 +44,11 @@ const About = () => {
               that truly cares about our client’s needs and desires.
             </p>
           </div>
-          <div className="flex flex-wrap justify-between gap-4">
+          <div className="flex flex-wrap justify-between gap-4 max-770:hidden">
             <Image
               src={about4}
               alt="about-4"
-              className="w-full sm:w-[30%] h-[180px] sm:h-[280px] rounded-lg object-cover"
+              className="w-full sm:w-[30%] h-[180px] sm:h-[280px] rounded-lg object-cover "
             />
             <Image
               src={about5}
