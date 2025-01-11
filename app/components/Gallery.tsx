@@ -11,7 +11,7 @@ const Gallery = () => {
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
         GALLERY
       </h1>
-      <div className="flex gap-4 overflow-x-auto my-scroll-container">
+      <div className="flex gap-4 overflow-x-auto my-scroll-container h-64 md:h-72 lg:h-80 ">
         {[about5, about4, about3, about1, about5, about3].map(
           (image, index) => (
             <div
@@ -21,7 +21,7 @@ const Gallery = () => {
               <Image
                 src={image}
                 alt={`Gallery Image ${index + 1}`}
-                className="w-full h-auto bg-[#FAF8F8] rounded-md object-cover"
+                className="w-full h-full bg-[#FAF8F8] rounded-md object-cover "
               />
             </div>
           )
