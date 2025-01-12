@@ -1,4 +1,3 @@
-import fs from "fs/promises";
 import { NextResponse } from "next/server";
 import { uploadToCloudinary } from "@/lib/cloudinary";
 import connectToDatabase from "@/lib/mongodb";
@@ -6,21 +5,6 @@ import { Product } from "@/models";
 import { v2 as cloudinary } from "cloudinary";
 
 export const dynamic = "force-dynamic";
-
-// Helper function to attempt file deletion with retries
-const tryDeleteFile = async (filePath, retries = 3, delay = 1000) => {
-  try {
-    await fs.unlink(filePath); // Attempt to delete the file
-  } catch (error) {
-    if (retries > 0) {
-      console.log(`Retrying file deletion for ${filePath}...`);
-      await new Promise((resolve) => setTimeout(resolve, delay)); // Wait before retrying
-      await tryDeleteFile(filePath, retries - 1, delay); // Retry deletion
-    } else {
-      console.error(`Failed to delete file: ${filePath}`, error);
-    }
-  }
-};
 
 export async function POST(request) {
   try {

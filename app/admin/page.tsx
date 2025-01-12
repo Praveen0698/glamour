@@ -3,12 +3,12 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid"; // Import UUID for generating unique IDs
 
-const page = () => {
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+const Admin = () => {
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
   const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const correctPassword = "Glamouravenue@900"; // Replace with your actual password logic
 
@@ -20,14 +20,15 @@ const page = () => {
       setError("Invalid password. Please try again.");
     }
   };
+
   return (
     <div className="w-full h-[100dvh] flex justify-center items-center">
       <div className="w-1/4 flex flex-col gap-5 p-5 bg-slate-50 border-[#cdb4db] border-[2px] rounded-md">
-        <div className="text-center flex flex-col gap-2.5 ">
+        <div className="text-center flex flex-col gap-2.5">
           <h1 className="text-2xl font-semibold text-[#cdb4db]">
             Glamour Avenue
           </h1>
-          <h1 className="text-xl font-semibold ">Welcome Admin!!</h1>
+          <h1 className="text-xl font-semibold">Welcome Admin!!</h1>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
@@ -57,4 +58,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Admin;

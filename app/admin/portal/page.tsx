@@ -16,6 +16,7 @@ import {
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Image from "next/image";
 
 interface GalleryItem {
   _id: string;
@@ -105,15 +106,17 @@ const Upload = () => {
   const [isModalProductOpen, setIsModalProductOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null); // Explicitly type the ref
   const modalProductRef = useRef<HTMLDivElement | null>(null); // Explicitly type the ref
-  const sessionId =
-    typeof window !== "undefined"
-      ? localStorage.getItem("adminSessionId")
-      : null;
+  const [sessionId, setSessionId] = useState<string | null>(null);
+
   useEffect(() => {
+    // This will run only on the client after the initial render
+    const sessionId = localStorage.getItem("adminSessionId");
     if (!sessionId) {
-      router.push("/admin"); // Redirect to login if session ID doesn't exist
+      router.push("/admin"); // Redirect if no sessionId
+    } else {
+      setSessionId(sessionId);
     }
-  }, [router]);
+  }, []);
 
   const [imageGallery, setImageGallery] = useState<File | null>(null);
   const [imageProduct, setImageProduct] = useState<File | null>(null);
@@ -195,7 +198,7 @@ const Upload = () => {
     currentProductPage * entriesProductPerPage
   );
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     if (imageGallery) {
@@ -208,7 +211,7 @@ const Upload = () => {
     }
   };
 
-  const handleSubmitProduct = async (e: any) => {
+  const handleSubmitProduct = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     if (imageProduct && titleProduct) {
@@ -334,9 +337,11 @@ const Upload = () => {
                       <TableRow key={row._id}>
                         <TableCell>{index + 1}</TableCell>
                         <TableCell>
-                          <img
+                          <Image
                             src={row.image}
                             alt="Gallery Image"
+                            height={60}
+                            width={60}
                             style={{ width: "60px", height: "60px" }}
                           />
                         </TableCell>
@@ -461,9 +466,11 @@ const Upload = () => {
                       <TableRow key={row._id}>
                         <TableCell>{index + 1}</TableCell>
                         <TableCell>
-                          <img
+                          <Image
                             src={row.image}
                             alt="Gallery Image"
+                            height={60}
+                            width={60}
                             style={{ width: "60px", height: "60px" }}
                           />
                         </TableCell>
