@@ -1,11 +1,31 @@
+"use client";
 import Image from "next/image";
-import React from "react";
-import Prod1 from "@/public/prod1.webp";
-import Prod2 from "@/public/prod2.webp";
-import Prod3 from "@/public/prod3.webp";
-import Prod4 from "@/public/prod4.webp";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+interface ProductItem {
+  _id: string;
+  image: string;
+  title: string;
+}
 
 const Products = () => {
+  const [getProductsData, setProductsData] = useState<ProductItem[]>([]);
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get("/api/products");
+      setProductsData(response.data.data); // Assuming response.data contains the product data
+    } catch (error) {
+      console.error("Error fetching products data:", error);
+      return []; // Return empty array on error
+    }
+  };
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  console.log(getProductsData);
   return (
     <section id="products" className="py-10 px-6 sm:px-10 lg:px-20">
       <div className="flex flex-col lg:flex-row justify-start items-start gap-10">
@@ -26,16 +46,18 @@ const Products = () => {
 
         {/* Products Section */}
         <div className="flex gap-5 w-full overflow-x-auto my-scroll-container">
-          {[Prod1, Prod2, Prod3, Prod4, Prod1, Prod2].map((product, index) => (
+          {getProductsData.map((product, index) => (
             <div key={index} className="w-[240px] sm:w-[280px] flex-shrink-0">
               <Image
-                src={product}
+                src={product.image}
                 alt={`product-${index + 1}`}
-                className="w-full h-[240px] sm:h-[280px] bg-[#FAF8F8] object-cover"
+                height={240}
+                width={200}
+                className="w-full h-[240px] rounded-md sm:h-[280px] bg-[#FAF8F8] object-cover"
               />
               <div className="flex flex-col items-center gap-2.5 mt-2">
                 <span className="font-semibold text-sm sm:text-base">
-                  Facial Cleanser
+                  {product.title}
                 </span>
               </div>
             </div>
