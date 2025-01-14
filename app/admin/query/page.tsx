@@ -32,7 +32,7 @@ const Query = () => {
 
   useEffect(() => {
     // This will run only on the client after the initial render
-    const sessionId = localStorage.getItem("adminSessionId");
+    const sessionId = localStorage.getItem("adminSession");
     if (!sessionId) {
       router.push("/admin"); // Redirect if no sessionId
     } else {
@@ -80,10 +80,20 @@ const Query = () => {
   return (
     sessionId && (
       <div className="flex justify-start items-center w-full">
-        <div className="p-5 bg-slate-50 w-full flex flex-col justify-between h-[100dvh]">
+        <div className="p-2.5 bg-slate-50 w-full flex flex-col justify-between h-[100dvh]">
           <div>
             <div className="flex justify-between w-full items-center">
               <h1 className="text-2xl font-semibold">User Query</h1>
+              <button
+                type="button"
+                onClick={() => {
+                  router.push("/admin");
+                  localStorage.removeItem("adminSession");
+                }}
+                className="px-6 py-2 bg-[#838083] text-white rounded-md"
+              >
+                Logout
+              </button>
             </div>
 
             <Box my={1}>

@@ -104,6 +104,13 @@ const Admin = () => {
           {error && <p style={{ color: "red" }}>{error}</p>}
           <div className="flex justify-end gap-4">
             <button
+              type="button"
+              onClick={() => router.push("/")}
+              className="px-6 py-2 bg-[#838083] text-white rounded-md"
+            >
+              Home
+            </button>
+            <button
               type="submit"
               className="px-6 py-2 bg-[#cdb4db] text-white rounded-md"
             >

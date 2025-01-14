@@ -17,6 +17,8 @@ const Pagination = ({
     }
   };
 
+  console.log(totalEntries);
+
   const renderPageNumbers = () => {
     const pages = [];
     const maxButtons = 5;
@@ -134,7 +136,7 @@ const Pagination = ({
         {renderPageNumbers()}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
+          disabled={currentPage === totalPages || totalEntries === 0}
           className="px-3 py-1 mx-1 rounded bg-gray-200 text-black disabled:opacity-50"
         >
           Next
