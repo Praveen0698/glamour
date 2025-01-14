@@ -17,8 +17,6 @@ const Pagination = ({
     }
   };
 
-  console.log(totalEntries);
-
   const renderPageNumbers = () => {
     const pages = [];
     const maxButtons = 5;
