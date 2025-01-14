@@ -84,16 +84,27 @@ const Query = () => {
           <div>
             <div className="flex justify-between w-full items-center">
               <h1 className="text-2xl font-semibold">User Query</h1>
-              <button
-                type="button"
-                onClick={() => {
-                  router.push("/admin");
-                  localStorage.removeItem("adminSession");
-                }}
-                className="px-6 py-2 bg-[#838083] text-white rounded-md"
-              >
-                Logout
-              </button>
+              <div className="flex items-center gap-5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    router.push("/admin/portal");
+                  }}
+                  className="px-6 py-2 bg-[#cdb4db] text-white rounded-md"
+                >
+                  Portal
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    router.push("/admin");
+                    localStorage.removeItem("adminSession");
+                  }}
+                  className="px-6 py-2 bg-[#838083] text-white rounded-md"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
 
             <Box my={1}>

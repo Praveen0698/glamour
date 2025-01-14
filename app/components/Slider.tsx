@@ -125,7 +125,7 @@ const Slider = () => {
                     });
                   }
                 }}
-                className="px-7 w-[20rem] py-4 text-2xl bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md hover:bg-[#cdb4db] hover:text-white transition-all duration-300"
+                className="px-7 w-[20rem] py-4 text-2xl bg-transparent border-[2px] border-[#cdb4db] text-[#cdb4db] rounded-md "
               >
                 VIEW SERVICE
               </button>

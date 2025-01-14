@@ -121,8 +121,8 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex justify-between items-center w-[95%]">
-      <p className="font-medium text-base">
+    <div className="flex justify-between items-center w-[95%] ">
+      <p className="font-medium text-base max-770:hidden">
         Showing {getDisplayedEntries()} of {totalEntries} entries
       </p>
       <div className="flex items-center justify-center">

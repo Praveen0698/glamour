@@ -258,28 +258,37 @@ const Upload = () => {
     sessionId && (
       <div className="flex flex-col justify-start items-center w-full">
         <div className="flex justify-between w-full items-center p-2.5 bg-[#cdb4db]">
-          <h1 className="text-2xl font-semibold text-white">
-            Product and gallery upload portal!
-          </h1>
-          <button
-            type="button"
-            onClick={() => {
-              router.push("/admin");
-              localStorage.removeItem("adminSession");
-            }}
-            className="px-6 py-2 bg-[#838083] text-white rounded-md"
-          >
-            Logout
-          </button>
+          <h1 className="text-2xl font-semibold text-white">Portal</h1>
+          <div className="flex items-center gap-5">
+            <button
+              type="button"
+              onClick={() => {
+                router.push("/admin/query");
+              }}
+              className="px-6 py-2 bg-[#838083] text-white rounded-md"
+            >
+              Query
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                router.push("/admin");
+                localStorage.removeItem("adminSession");
+              }}
+              className="px-6 py-2 bg-[#838083] text-white rounded-md"
+            >
+              Logout
+            </button>
+          </div>
         </div>
-        <div className="flex justify-between items-start gap-5 w-full">
+        <div className="flex justify-between items-start gap-5 w-full max-770:flex-col">
           <div className="p-5 bg-slate-50 w-full flex flex-col justify-between h-[90dvh]">
             <div>
               <div className="flex justify-between w-full items-center">
                 <h1 className="text-2xl font-semibold">Products</h1>
                 <button
                   onClick={handleModalProductToggle}
-                  className=" w-[6rem] p-2 text-sm bg-[#cdb4db] text-white rounded-md"
+                  className=" w-[6rem] max-770:w-[8rem] p-2 text-sm bg-[#cdb4db] text-white rounded-md"
                 >
                   Add Product
                 </button>
@@ -427,7 +436,7 @@ const Upload = () => {
                 <h1 className="text-2xl font-semibold">Gallery</h1>
                 <button
                   onClick={handleModalToggle}
-                  className=" w-[6rem] p-2 text-sm bg-[#cdb4db] text-white rounded-md"
+                  className=" w-[6rem] max-770:w-[8rem]  p-2 text-sm bg-[#cdb4db] text-white rounded-md"
                 >
                   Add Gallery
                 </button>

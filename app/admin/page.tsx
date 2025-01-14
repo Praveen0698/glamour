@@ -42,7 +42,7 @@ const Admin = () => {
 
   return (
     <div className="w-full h-[100dvh] flex justify-center items-center">
-      <div className="w-1/4 flex flex-col gap-5 p-5 bg-slate-50 border-[#cdb4db] border-[2px] rounded-md">
+      <div className="w-1/4 max-770:w-full max-770:mx-5 flex flex-col gap-5 p-5 bg-slate-50 border-[#cdb4db] border-[2px] rounded-md">
         <div className="text-center flex flex-col gap-2.5">
           <h1 className="text-2xl font-semibold text-[#cdb4db]">
             Glamour Avenue
