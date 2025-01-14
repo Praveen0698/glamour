@@ -200,25 +200,33 @@ const Upload = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    if (imageGallery) {
-      await uploadGallery(imageGallery);
-      getGallery();
-      handleModalToggle();
-      setLoading(false);
+    if (getGalleryData.length < 20) {
+      setLoading(true);
+      if (imageGallery) {
+        await uploadGallery(imageGallery);
+        getGallery();
+        handleModalToggle();
+        setLoading(false);
+      } else {
+        console.log("No image selected");
+      }
     } else {
-      console.log("No image selected");
+      alert("Delete some data to proceed!!");
     }
   };
 
   const handleSubmitProduct = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    if (imageProduct && titleProduct) {
-      await uploadProduct(imageProduct, titleProduct);
-      getProducts();
-      handleModalProductToggle();
-      setLoading(false);
+    if (getProductsData.length < 20) {
+      setLoading(true);
+      if (imageProduct && titleProduct) {
+        await uploadProduct(imageProduct, titleProduct);
+        getProducts();
+        handleModalProductToggle();
+        setLoading(false);
+      }
+    } else {
+      alert("Delete some data to proceed!!");
     }
   };
 
@@ -233,6 +241,7 @@ const Upload = () => {
       throw error; // Optionally handle the error or return an appropriate response
     }
   };
+
   const deleteGallery = async (id: string) => {
     try {
       // Send DELETE request to the product API with the ID as a search query parameter

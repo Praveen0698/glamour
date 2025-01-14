@@ -1,14 +1,26 @@
 "use client";
 
-// import Link from "next/link";
-import { useState, useRef } from "react";
+import React, {
+  useState,
+  useRef,
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+} from "react";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null); // Explicitly type the ref
+  const [formData, setFormData] = useState({
+    name: "",
+    mobile: "",
+    requirement: "",
+  });
 
+  const [isLoading, setIsLoading] = useState(false);
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -26,6 +38,62 @@ const Navbar = () => {
   const handleLinkClick = () => {
     // Close the mobile menu when a link is clicked
     setIsMobileMenuOpen(false);
+  };
+
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      await response.json();
+
+      if (response.ok) {
+        Swal.fire({
+          title: "Success!",
+          text: "Appointment query placed",
+          icon: "success",
+          confirmButtonColor: "#cdb4db",
+        });
+        handleModalToggle(); // Close the modal
+        setFormData({
+          name: "",
+          mobile: "",
+          requirement: "",
+        });
+      } else {
+        Swal.fire({
+          title: "Failed!",
+          text: "Failed to place appointment query.",
+          icon: "error",
+          confirmButtonColor: "red",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting appointment:", error);
+      Swal.fire({
+        title: "Failed!",
+        text: "Failed to place appointment query.",
+        icon: "error",
+        confirmButtonColor: "red",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -275,35 +343,47 @@ const Navbar = () => {
             <h2 className="text-2xl font-bold mb-4 text-center text-black">
               Book Appointment
             </h2>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block mb-1 text-sm font-medium text-gray-700">
                   Name
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db]"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full text-gray-600 outline-none px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db]"
                   placeholder="Enter your name"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block mb-1 text-sm font-medium text-gray-700">
                   Mobile
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db]"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleInputChange}
+                  className="w-full outline-none px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db] text-gray-600"
                   placeholder="Enter your mobile number"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block mb-1 text-sm font-medium text-gray-700">
                   Requirement
                 </label>
                 <textarea
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db]"
+                  name="requirement"
+                  value={formData.requirement}
+                  onChange={handleInputChange}
+                  className="w-full outline-none text-gray-600 px-4 py-2 border rounded-md focus:ring-2 focus:ring-[#cdb4db]"
                   rows={4}
                   placeholder="Enter your requirement"
+                  required
                 ></textarea>
               </div>
               <div className="flex justify-end gap-4">
@@ -311,14 +391,16 @@ const Navbar = () => {
                   type="button"
                   onClick={handleModalToggle}
                   className="px-6 py-2 bg-gray-300 text-gray-700 rounded-md"
+                  disabled={isLoading}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   className="px-6 py-2 bg-[#cdb4db] text-white rounded-md"
+                  disabled={isLoading}
                 >
-                  Submit
+                  {isLoading ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </form>
